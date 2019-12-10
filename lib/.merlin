@@ -1,0 +1,19 @@
+EXCLUDE_QUERY_DIR
+B /home/thaut/.opam/4.07.1/lib/batteries
+B /home/thaut/.opam/4.07.1/lib/bytes
+B /home/thaut/.opam/4.07.1/lib/num
+B /home/thaut/.opam/4.07.1/lib/ocaml
+B /home/thaut/.opam/4.07.1/lib/ocaml/threads
+B /home/thaut/.opam/4.07.1/lib/ppx_deriving/runtime
+B /home/thaut/.opam/4.07.1/lib/result
+B ../_build/default/lib/.remu_scope.objs/byte
+S /home/thaut/.opam/4.07.1/lib/batteries
+S /home/thaut/.opam/4.07.1/lib/bytes
+S /home/thaut/.opam/4.07.1/lib/num
+S /home/thaut/.opam/4.07.1/lib/ocaml
+S /home/thaut/.opam/4.07.1/lib/ocaml/threads
+S /home/thaut/.opam/4.07.1/lib/ppx_deriving/runtime
+S /home/thaut/.opam/4.07.1/lib/result
+S .
+FLG -ppx '/home/thaut/Desktop/id/remu_scope/_build/default/.ppx/4c4b0dc849c26ef889ee6f55cb3a0672/ppx.exe --as-ppx --cookie '\''library-name="remu_scope"'\'''
+FLG -open Remu_scope -w -40

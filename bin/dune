@@ -1,0 +1,4 @@
+(executable
+ (public_name remu_scope)
+ (name main)
+ (libraries remu_scope))

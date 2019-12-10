@@ -1,0 +1,7 @@
+(library
+  (name remu_scope)
+  (libraries batteries)
+  (preprocess (pps ppx_deriving.show)))
+
+
+
