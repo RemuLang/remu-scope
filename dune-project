@@ -1,4 +1,4 @@
-(lang dune 2.0)
+(lang dune 1.11)
 (version 0.1)
 (name remu_scope)
 (generate_opam_files true)

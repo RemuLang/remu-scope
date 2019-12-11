@@ -69,7 +69,7 @@ end
 
 type env = {scopes: scope DArr.arr; gensym_uid: int64 ref}
 
-let print_env ({scopes}: env) =
+let print_env ({scopes; _}: env) =
     Printf.printf "env:\n";
     for i = 0 to scopes.len-1 do
       Printf.printf "scope %d:\n" i;
