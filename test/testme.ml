@@ -12,20 +12,22 @@ let _ =
 
    (* contrived samples *)
    let root: scoperef = 0 in
-   enter root "a";
+   let a1 = enter root "a" in
    let sub1 = subscope root in
    let sub2 = subscope sub1 in
-   enter sub2 "a";
+   let a2 = enter sub2 "a" in
    (* print_endline @@ string_of_bool (Set.mem "a" !sub2.boundvars); *)
 
    let sub3 = subscope sub2 in
    let sub4 = subscope sub3 in
-   require sub4 "a";
+   let a3 = require sub4 "a" in
 
    let sub2 = !sub2 in
    let sub3 = !sub3 in
    let sub4 = !sub4 in
 
-   assert (not @@ Set.mem "a" sub2.freevars);
-   assert (Set.mem "a" sub3.freevars);
-   assert (Set.mem "a" sub4.freevars)
+   assert (not @@ Map.mem "a" sub2.freevars);
+   assert (Map.mem "a" sub3.freevars);
+   assert (Map.mem "a" sub4.freevars);
+   assert (a1 != a2);
+   assert (a2 = a3)
