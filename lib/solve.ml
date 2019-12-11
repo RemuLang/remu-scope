@@ -3,8 +3,8 @@ type ('k, 'v) map = ('k, 'v) Map.t
 
 type name = string
 
-(* may use uint as uuid here *)
-type sym = {name: string; uuid: int64}
+(* may use uint as uid here *)
+type sym = {name: string; uid: int64}
 
 type scope = {
     freevars: (name, sym) map;
@@ -65,7 +65,7 @@ module DArr = struct
     Array.unsafe_set arr.data len elt
 end
 
-type env = {scopes: scope DArr.arr; gensym_uuid: int64 ref}
+type env = {scopes: scope DArr.arr; gensym_uid: int64 ref}
 
 let print_env ({scopes}: env) =
     Printf.printf "env:\n";
@@ -79,19 +79,19 @@ let env_set {scopes; _} k v = DArr.update k v scopes
 
 let env_get {scopes; _} k = DArr.get k scopes
 
-let env_inc {gensym_uuid; _} =
-    let ret = !gensym_uuid in
-    gensym_uuid := Int64.add Int64.one ret;
+let env_inc {gensym_uid; _} =
+    let ret = !gensym_uid in
+    gensym_uid := Int64.add Int64.one ret;
     ret
 
 let (%%) env name =
-  let uuid = env_inc env in
-  {name; uuid}
+  let uid = env_inc env in
+  {name; uid}
 
 let empty_env() =
     let scopes = DArr.make 1 empty_global_scope in
-    let gensym_uuid = ref Int64.zero in
-    {scopes; gensym_uuid}
+    let gensym_uid = ref Int64.zero in
+    {scopes; gensym_uid}
 
 exception BindTwice of string
 exception Undef of string
