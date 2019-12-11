@@ -6,6 +6,8 @@ type name = string
 (* may use uint as uid here *)
 type sym = {name: string; uid: int64}
 
+let print_sym {name; uid} =
+   Printf.printf "<symbol %s %Ld>" name uid
 type scope = {
     freevars: (name, sym) map;
     boundvars: (name, sym) map;

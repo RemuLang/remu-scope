@@ -30,4 +30,6 @@ let _ =
    assert (Map.mem "a" sub3.freevars);
    assert (Map.mem "a" sub4.freevars);
    assert (a1 != a2);
-   assert (a2 = a3)
+   assert (a2 = a3);
+   List.map print_sym [a1; a2; a3]
+
